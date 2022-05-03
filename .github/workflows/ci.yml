@@ -2,7 +2,7 @@ name: "update inputs"
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 0 * * MON' # every monday. nixpkgs.lib is updated every sunday
+    - cron:  '0 12 * * *' # daily at 12:00
 jobs:
   tests:
     runs-on: ubuntu-latest
