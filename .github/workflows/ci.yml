@@ -1,0 +1,26 @@
+name: "update inputs"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * MON' # every monday. nixpkgs.lib is updated every sunday
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v16
+
+    - name: Update inputs
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        nix flake update --commit-lock-file
+
+    - name: Check for nixpkgs references
+      run: |
+        grep '"nixpkgs"' flake.lock --invert-match --quiet
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
