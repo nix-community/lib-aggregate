@@ -17,11 +17,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1660438583,
+        "lastModified": 1661043198,
         "narHash": "sha256-rJUTYxFKlWUJI3njAwEc1pKAVooAViZGJvsgqfh/q/E=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "bbd8f7cd87d0b29294ef3072ffdbd61d60f05da4",
+        "rev": "b5e4bf3b9f79ed681c45b4d00123117ca32f04f1",
         "type": "github"
       },
       "original": {
